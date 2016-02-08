@@ -1,9 +1,6 @@
-# Multi-Layer Perceptron for MNIST Classification
-
-This is a minimal example to write a feed-forward net.
-The code consists of three parts: dataset preparation, network and optimizer definition and learning loop.
-This is a common routine to write a learning process of networks with dataset that is small enough to fit into memory.
-
-This example requires scikit-learn to load the MNIST dataset.
-If you want to run this example on the N-th GPU, pass `--gpu=N` to the script.
 # EpistaticInteractionsYeastU30
+
+Data analysis files for the submission 
+"Network of Epistatic Interactions Within Yeast U3 snoRNA"
+by Olga Puchta, Botond Cseke, Hubert Czaja, David Tollervey, Guido Sanguinetti and  Grzegorz Kudla
+
