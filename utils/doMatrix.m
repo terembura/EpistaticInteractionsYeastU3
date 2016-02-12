@@ -1,6 +1,6 @@
 function d = doMatrix(A, mutation_types)
 %
-%    
+%   read data from SNP file    
 %
 
 % process mutations by iterating through barcodes

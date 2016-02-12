@@ -47,7 +47,7 @@ z       = zeros(nx,1);
 zold    = z;
 r       = zeros(length(lampath)*nexp, nfold);
 
-parfor k = 1:nfold*length(lampath)*nexp,
+for k = 1:nfold*length(lampath)*nexp,
     [l, i, j] = ind2sub([nfold, length(lampath), nexp], k);
     
     t0 = cputime;            
@@ -60,15 +60,11 @@ parfor k = 1:nfold*length(lampath)*nexp,
     fprintf('Experiment %d, lam %d of %d (%f), fold %d done in %f secs.\n', j, i, length(lampath), lampath(i), l, cputime - t0);                     
 end
 
-r = reshape(r, [nfold, length(lampath), nexp]);
+res.r = reshape(r, [nfold, length(lampath), nexp]);
 
 [bubu,imin] = min(mean(sum(r,1),3));
-lamopt      = lampath(imin);
-zopt        = l1reg_fista(zold, X, y, L, lamopt, options);
-
-res.lamopt = lamopt;
-res.zopt   = zopt;
-res.r      = r;
+res.lamopt      = lampath(imin);
+res.zopt        = l1reg_fista(zold, X, y, L, lamopt, options);
 
 %zpath = zeros(length(zopt), length(lampath));
 %parfor j=1:length(lampath)

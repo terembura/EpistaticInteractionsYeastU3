@@ -30,7 +30,7 @@ ep_res.y           = count_data.y;
 ep_res.count_times = count_times;
 ep_res.mp          = [  0   0    0   0*ones(1, size(count_data.y,2)-1)];
 ep_res.vp          = [1e2 1e2 1e-4 1e2*ones(1, size(count_data.y,2)-1)];
-ep_res.options     = infopt({'Verb',1, 'MaxIter', 1e2, 'eps', 0.95, 'TolX', 0.005});
+ep_res.options     = infopt({'Verb',1, 'MaxIter', 1e2, 'eps', 0.9, 'TolX', 0.005});
 
 % run ep
 [m, v, V, proj, terms] = ep_slopes_bt(count_data.y, count_times, ep_res.mp, ep_res.vp, ep_res.options);

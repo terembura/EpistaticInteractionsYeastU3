@@ -1,4 +1,4 @@
-function writetable(fname, matrix, rownames, colnames)
+function writetable(fname, matrix, rownames, colnames, TYPE)
 %
 %    write a matrix into a coma separeted file
 %
@@ -14,7 +14,14 @@ if ~isempty(colnames)
 end
     
 for j=1:size(matrix,1)
-    s = sprintf(' %f',matrix(j,:));
+    switch upper(TYPE)
+    case 'INT'
+        s = sprintf(' %d',matrix(j,:));
+    case 'DOUBLE'
+        s = sprintf(' %g',matrix(j,:));
+    otherwise
+        s = sprintf(' %f',matrix(j,:));
+    end
     if ~isempty(rownames)    
         s = strcat(rownames{j}, s);
         fprintf(fid,'%s\n',s);

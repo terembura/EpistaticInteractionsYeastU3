@@ -33,7 +33,7 @@ writetable(strcat('coeff-', filetext,'.txt'), ...
     {}, {'mutation_1', 'mutation_2', 'regression_coeff'});
 
 % write out the lamdiff values and the z scores
-meandiff(dorig,[],[],strcat('lamdiff-', filetext,'.txt'));
+%meandiff(dorig,[],[],strcat('lamdiff-', filetext,'.txt'));
 close all;
 
 % write out the processing details like data-file, snp-file, snp-processing etc.

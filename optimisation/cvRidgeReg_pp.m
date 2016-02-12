@@ -45,13 +45,10 @@ r       = zeros(length(lampath)*nexp, nfold);
 vari     = zeros(length(lampath)*nexp, nfold);
 for k = 1:nfold*length(lampath)*nexp,
     [l, i, j] = ind2sub([nfold, length(lampath), nexp], k);
-    tic
     t0 = cputime;            
-    
     z    = ridgeRegVanilla(y(p(Itrain{l},j)),X(p(Itrain{l},j),:),lampath(i));
     r(k) = norm(y(p(Itest{l},j)) - X(p(Itest{l},j),:)*z)^2/length(y(p(Itest{l},j)));
     vari(k)=var((y(p(Itest{l},j))));
-    toc
     fprintf('Experiment %d, lam %d of %d (%f), fold %d done in %f secs.\n', j, i, length(lampath), lampath(i), l, cputime - t0);                     
 end
 

@@ -11,7 +11,6 @@ function d = process_count_file(fname, selcols)
 %    d.y        -- the count data
 %
 
-%A       = readtable('readcounts-37Csmall-2015-04-10_mod.txt');
 A       = readtable(fname);
 if isempty(selcols)
     selcols = [1:size(A.matrix,2)];
