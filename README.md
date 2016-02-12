@@ -1,4 +1,4 @@
-# EpistaticInteractionsYeastU30
+# EpistaticInteractionsYeastU3
 
 Data analysis files for the submission 
 "Network of Epistatic Interactions Within Yeast U3 snoRNA"
