@@ -12,15 +12,15 @@ end
 
 writetable(strcat('count-', filetext,'.txt'), ...
     d.lamfit.y, ...
-    d.lamfit.rownames, colnames);
+    d.lamfit.rownames, colnames,'double');
     
 writetable(strcat('count-fit-mean-', filetext,'.txt'), ...
     d.lamfit.fit_mean, ...
-    d.lamfit.rownames, colnames);
+    d.lamfit.rownames, colnames, 'double');
 
 writetable(strcat('lam-', filetext,'.txt'), ...
     [d.lamfit.lam_mean, d.lamfit.lam_std], ...
-    d.lamfit.rownames, {'barcode', 'lam_mean', 'lam_std'});
+    d.lamfit.rownames, {'barcode', 'lam_mean', 'lam_std'}, 'double');
 
 % write out the z coefficients
 dorig     = fix_mut_miss(d);
@@ -30,7 +30,7 @@ I         = I(J);
 
 writetable(strcat('coeff-', filetext,'.txt'), ...
     [dorig.diagn(:,I)', dorig.zopt(I)], ...
-    {}, {'mutation_1', 'mutation_2', 'regression_coeff'});
+    {}, {'mutation_1', 'mutation_2', 'regression_coeff'},'double');
 
 % write out the lamdiff values and the z scores
 %meandiff(dorig,[],[],strcat('lamdiff-', filetext,'.txt'));
